@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <div th:replace="~{fragments/header :: head}"></div>
+        <title>Pizzeria Spring</title>
+    </head>
+
+    <body>
+        <div th:if="${listaPizze.isEmpty()}">
+            <h3>Lista delle pizze</h3>
+            <p> Spiacente, oggi nessuna pizza nel nostro menu</p>
+        </div>
+
+        <div th:unless="${listaPizze.isEmpty()}">
+            <h3>Lista delle pizze</h3>
+            <table>
+                <thead>
+                    <th>id</th>
+                    <th>nome</th>
+                    <th>descrizione</th>
+                    <th>foto</th>
+                    <th>prezzo</th>
+                </thead>
+                <tbody>
+                    <tr th:each="pizzaElemento : ${listaPizze}">
+                        <td th:text="${pizzaElemento.id}"></td>
+                        <td th:text="${pizzaElemento.nome}"></td>
+                        <td th:text="${pizzaElemento.descrizione}"></td>
+                        <td th:text="${pizzaElemento.foto}"></td>
+                        <td th:text="${pizzaElemento.prezzo}"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <div th:replace="~{fragments/header :: bootstrapScript}"></div>
+    </body>
+</html>
