@@ -14,21 +14,21 @@
 
         <div th:unless="${listaPizze.isEmpty()}">
             <h3>Lista delle pizze</h3>
-            <table>
+            <table class="table table-hover table-sm">
                 <thead>
-                    <th>id</th>
-                    <th>nome</th>
-                    <th>descrizione</th>
-                    <th>foto</th>
-                    <th>prezzo</th>
+                    <!-- <th>id</th> -->
+                    <th>Nome Pizza</th>
+                    <th>Ingredienti</th>
+                    <th>Foto</th>
+                    <th>Prezzo Euro</th>
                 </thead>
                 <tbody>
                     <tr th:each="pizzaElemento : ${listaPizze}">
-                        <td th:text="${pizzaElemento.id}"></td>
+                        <!--<td th:text="${pizzaElemento.id}"></td>-->
                         <td th:text="${pizzaElemento.nome}"></td>
                         <td th:text="${pizzaElemento.descrizione}"></td>
                         <td th:text="${pizzaElemento.foto}"></td>
-                        <td th:text="${pizzaElemento.prezzo}"></td>
+                        <td th:text="|${pizzaElemento.prezzo} €|"></td>
                     </tr>
 
                 </tbody>
